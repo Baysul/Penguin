@@ -130,6 +130,7 @@ class Penguin(Spheniscidae):
 		super(Penguin, self).__init__(player)
 
 		self.addListener("jr", self._handleJoinRoom)
+		self.addListener("jg", self._handleJoinRoom)
 
 	def sendLogin(self):
 		passwordHash = Crypto.encryptPassword(self.loginKey + self.randomKey) + self.loginKey
@@ -150,6 +151,7 @@ class Penguin(Spheniscidae):
 	# For now, this is literally all it does
 	def _handleJoinRoom(self, data):
 		self.internalRoomId = data[2]
+		self.externalRoomId = data[3]
 
 	"""
 	Usage example
@@ -186,6 +188,9 @@ class Penguin(Spheniscidae):
 
 	def getPlayerInfoByName(self, name):
 		self.sendXt("s", "u#pbn", name)
+
+	def sendGameOver(self, coins):
+		self.sendXt("z", "zo", coins)
 
 	"""
 	Retrieves phrase chat id of msg for use with the pcam packet.
