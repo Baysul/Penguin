@@ -1,3 +1,7 @@
+""" Credits
+Zephyr (https://github.com/Zephyr-Vi) for the interval formula
+"""
+
 from twisted.internet import reactor
 
 from Penguin.ClubPenguin import ClubPenguin
