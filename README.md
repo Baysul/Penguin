@@ -1,2 +1,2 @@
 # Penguin
-Reverse-engineered Club Penguin client library written in Python
+Club Penguin client library written in Python.
