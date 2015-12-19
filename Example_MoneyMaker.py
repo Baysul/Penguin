@@ -2,6 +2,7 @@
 Zephyr (https://github.com/Zephyr-Vi) for the interval formula
 """
 
+from math import ceil
 from twisted.internet import reactor
 
 from Penguin.ClubPenguin import ClubPenguin
@@ -18,7 +19,7 @@ class CoinPenguin(Penguin):
 		self.looped = 0
 
 		# Amount of time to wait (in seconds) to send the zo packet
-		self.interval = int(round(float(coins) / 30))
+		self.interval = ceil(float(coins) / 30)
 
 		self.addListener("jr", self.handleJoinRoom)
 		self.addListener("jg", self.handleJoinGame)
@@ -80,7 +81,7 @@ class CoinFactory(PenguinFactory):
 cp = ClubPenguin()
 
 # Loops keyword is optional
-coinFactory = CoinFactory(coins=1250, loops=5)
+coinFactory = CoinFactory(coins=1000)
 
 cp.connect(username="Username", password="Password", server="Frostbite", \
 	factory=coinFactory)
