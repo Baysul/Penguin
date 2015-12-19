@@ -3,7 +3,7 @@ import logging
 from time import sleep
 from urllib2 import Request, urlopen
 
-from lxml import etree
+import xml.etree.ElementTree as etree
 from twisted.internet import defer, reactor
 from twisted.protocols.basic import LineReceiver
 
